@@ -11,3 +11,4 @@ curl --location 'http://localhost:8080/request' \
 curl --location 'http://localhost:8080/vacancy/116766981'
 вывод сохраненной вакансии из базы данных
 
+в проекте есть докер, можно запустить docker compose up
