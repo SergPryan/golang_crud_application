@@ -3,6 +3,7 @@ services:
 
   db:
     image: postgres:latest
+    container_name: db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -11,16 +12,18 @@ services:
       - "5432:5432"
 
   migrations:
+    container_name: migrations
     image: kukymbr/goose-docker:3.24.1
     depends_on:
       - db
     environment:
       - GOOSE_DRIVER=postgres
-      - GOOSE_DBSTRING=host=db port=5432 user=postgres password=postgres dbname=dbname
+      - GOOSE_DBSTRING=host=db port=5432 user=postgres password=postgres dbname=dbname sslmode=disable
     volumes:
       - ./migrations:/migrations
 
   app:
+    container_name: app-hh
     build:
       context: .
       dockerfile: docker/app/Dockerfile
@@ -28,3 +31,7 @@ services:
       - db
     ports:
       - "8080:8080"
+    environment:
+      - DATABASE_DRIVER=postgres
+      - DATABASE_URL=host=db port=5432 user=postgres password=postgres dbname=dbname sslmode=disable
+      - URL_HH_RU=https://api.hh.ru/vacancies?area=1202&specialization=1&page=

@@ -6,8 +6,6 @@ type Vacancy struct {
 	DatePublication string `json:"published_at,omitempty"`
 	Salary          Salary `json:"salary,omitempty"`
 	AlternateUrl    string `json:"alternate_url,omitempty"`
-	Area            Area   `json:"area,omitempty"`
-	CreatedAt       string
 }
 
 type Salary struct {
