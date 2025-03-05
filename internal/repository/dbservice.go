@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"crud_application/entity"
+	"crud_application/internal/entity"
 	"database/sql"
 	"github.com/lib/pq"
 	"log"

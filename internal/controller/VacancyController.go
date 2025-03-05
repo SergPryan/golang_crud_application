@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"crud_application/entity"
-	"crud_application/repository"
+	"crud_application/internal/entity"
+	"crud_application/internal/repository"
 	"encoding/json"
 	"fmt"
 	"io"

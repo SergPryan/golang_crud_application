@@ -1,7 +1,7 @@
 package main
 
 import (
-	"crud_application/controller"
+	"crud_application/internal/controller"
 	"log"
 	"net/http"
 )
